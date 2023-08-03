@@ -13,7 +13,7 @@ id = 0
 # names related to ids: example ==> Marcelo: id=1,  etc
 names = ['None', 'BigAddict', '420_G', "Taraja"] 
 # Initialize and start realtime video capture
-cam = cv2.VideoCapture(1)
+cam = cv2.VideoCapture(0)
 cam.set(3, 640) # set video widht
 cam.set(4, 480) # set video height
 # Define min window size to be recognized as a face

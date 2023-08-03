@@ -1,0 +1,17 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>Icons/icon.png</file>
+    <file>Icons/copy.png</file>
+    <file>Icons/copy_disabled.png</file>
+    <file>Icons/copy_focus.png</file>
+    <file>Icons/square.png</file>
+    <file>Icons/square_disabled.png</file>
+    <file>Icons/square_focus.png</file>
+    <file>Icons/window_close.png</file>
+    <file>Icons/window_close_disabled.png</file>
+    <file>Icons/window_close_focus.png</file>
+    <file>Icons/window_minimize.png</file>
+    <file>Icons/window_minimize_disabled.png</file>
+    <file>Icons/window_minimize_focus.png</file>
+  </qresource>
+</RCC>
