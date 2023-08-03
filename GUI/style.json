@@ -1,0 +1,35 @@
+{
+	"QMainWindow":[
+		{
+			"tittle":"Face Recognition",
+			"icon":":/icons/Icons/icon.png",
+			"frameless": true,
+			"transluscentBg": true,
+			"sizeGrip": "size_grip",
+			"shadow":[
+				{
+					"color": "#fff",
+					"blurRadius": 20,
+					"xOffset": 0,
+					"yOffset": 0,
+					"centralWidget": "centralwidget"
+				}
+			],
+			"navigation":[
+				{
+					"minimize":"minimizeBtn",
+					"close": "closeBtn",
+					"restore":[
+						{	
+							"buttonName": "restoreBtn",
+							"normalIcon": ":/icons/Icons/square.png",
+							"maximizedIcon": ":/icons/Icons/copy.png"
+						}
+					],
+					"moveWindow": "headerContainer",
+					"tittleBar": "headerContainer"
+				}
+			]
+		}
+	]
+}
