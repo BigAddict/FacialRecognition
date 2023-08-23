@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'interfacegfPtTU.ui'
+## Form generated from reading UI file 'interfacehsytsX.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -21,6 +21,7 @@ class Ui_MainWindow(object):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(887, 588)
+        MainWindow.setStyleSheet(u"")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout = QGridLayout(self.centralwidget)
@@ -103,20 +104,18 @@ class Ui_MainWindow(object):
         self.leftContainer.setFrameShadow(QFrame.Raised)
         self.gridLayout_3 = QGridLayout(self.leftContainer)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.cameraOutput = QLabel(self.leftContainer)
-        self.cameraOutput.setObjectName(u"cameraOutput")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.cameraOutput.sizePolicy().hasHeightForWidth())
-        self.cameraOutput.setSizePolicy(sizePolicy2)
-
-        self.gridLayout_3.addWidget(self.cameraOutput, 0, 0, 1, 1)
-
         self.textOutput = QPlainTextEdit(self.leftContainer)
         self.textOutput.setObjectName(u"textOutput")
 
         self.gridLayout_3.addWidget(self.textOutput, 1, 0, 1, 1, Qt.AlignBottom)
+
+        self.cameraOutput = QGraphicsView(self.leftContainer)
+        self.cameraOutput.setObjectName(u"cameraOutput")
+        self.scene = QGraphicsScene()
+        self.pixmap_item = self.scene.addPixmap(QPixmap())
+        self.cameraOutput.setScene(self.scene)
+
+        self.gridLayout_3.addWidget(self.cameraOutput, 0, 0, 1, 1)
 
 
         self.horizontalLayout_3.addWidget(self.leftContainer)
@@ -129,6 +128,9 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.rightContainerHeader = QFrame(self.rightContainer)
         self.rightContainerHeader.setObjectName(u"rightContainerHeader")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.rightContainerHeader.sizePolicy().hasHeightForWidth())
         self.rightContainerHeader.setSizePolicy(sizePolicy2)
         self.rightContainerHeader.setFrameShape(QFrame.StyledPanel)
@@ -205,32 +207,52 @@ class Ui_MainWindow(object):
 
         self.formLayout.setWidget(5, QFormLayout.FieldRole, self.lineEdit)
 
-        self.existingUser = QCheckBox(self.imageDataset)
-        self.existingUser.setObjectName(u"existingUser")
-        self.existingUser.setFont(font2)
-
-        self.formLayout.setWidget(6, QFormLayout.SpanningRole, self.existingUser)
-
-        self.addOnDataset = QCheckBox(self.imageDataset)
-        self.addOnDataset.setObjectName(u"addOnDataset")
-        font3 = QFont()
-        font3.setPointSize(9)
-        font3.setBold(True)
-        font3.setWeight(75)
-        self.addOnDataset.setFont(font3)
-
-        self.formLayout.setWidget(7, QFormLayout.SpanningRole, self.addOnDataset)
-
         self.datasetProcess = QPushButton(self.imageDataset)
         self.datasetProcess.setObjectName(u"datasetProcess")
 
-        self.formLayout.setWidget(8, QFormLayout.SpanningRole, self.datasetProcess)
+        self.formLayout.setWidget(6, QFormLayout.SpanningRole, self.datasetProcess)
 
         self.stackedWidget.addWidget(self.imageDataset)
         self.recognitionSettings = QWidget()
         self.recognitionSettings.setObjectName(u"recognitionSettings")
         self.gridLayout_4 = QGridLayout(self.recognitionSettings)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.resetBtn = QPushButton(self.recognitionSettings)
+        self.resetBtn.setObjectName(u"resetBtn")
+
+        self.gridLayout_4.addWidget(self.resetBtn, 5, 2, 1, 1)
+
+        self.label_7 = QLabel(self.recognitionSettings)
+        self.label_7.setObjectName(u"label_7")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_7.sizePolicy().hasHeightForWidth())
+        self.label_7.setSizePolicy(sizePolicy3)
+        self.label_7.setFont(font1)
+
+        self.gridLayout_4.addWidget(self.label_7, 4, 0, 1, 2)
+
+        self.noOfTrainedPeopleDisplay2 = QLCDNumber(self.recognitionSettings)
+        self.noOfTrainedPeopleDisplay2.setObjectName(u"noOfTrainedPeopleDisplay2")
+        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.noOfTrainedPeopleDisplay2.sizePolicy().hasHeightForWidth())
+        self.noOfTrainedPeopleDisplay2.setSizePolicy(sizePolicy4)
+
+        self.gridLayout_4.addWidget(self.noOfTrainedPeopleDisplay2, 1, 2, 1, 1)
+
+        self.recognizedNames = QTextEdit(self.recognitionSettings)
+        self.recognizedNames.setObjectName(u"recognizedNames")
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(self.recognizedNames.sizePolicy().hasHeightForWidth())
+        self.recognizedNames.setSizePolicy(sizePolicy5)
+
+        self.gridLayout_4.addWidget(self.recognizedNames, 4, 2, 1, 1)
+
         self.label = QLabel(self.recognitionSettings)
         self.label.setObjectName(u"label")
 
@@ -241,6 +263,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.cameraSelectRec, 0, 1, 1, 2)
 
+        self.startRecognitionBtn = QPushButton(self.recognitionSettings)
+        self.startRecognitionBtn.setObjectName(u"startRecognitionBtn")
+
+        self.gridLayout_4.addWidget(self.startRecognitionBtn, 5, 0, 1, 2)
+
         self.label_6 = QLabel(self.recognitionSettings)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setFont(font2)
@@ -248,31 +275,17 @@ class Ui_MainWindow(object):
 
         self.gridLayout_4.addWidget(self.label_6, 1, 0, 1, 2)
 
-        self.noOfTrainedPeopleDisplay2 = QLCDNumber(self.recognitionSettings)
-        self.noOfTrainedPeopleDisplay2.setObjectName(u"noOfTrainedPeopleDisplay2")
+        self.tableView = QTableView(self.recognitionSettings)
+        self.tableView.setObjectName(u"tableView")
 
-        self.gridLayout_4.addWidget(self.noOfTrainedPeopleDisplay2, 1, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.tableView, 2, 2, 1, 1)
 
-        self.label_7 = QLabel(self.recognitionSettings)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setFont(font1)
+        self.label_8 = QLabel(self.recognitionSettings)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setFont(font1)
+        self.label_8.setWordWrap(True)
 
-        self.gridLayout_4.addWidget(self.label_7, 2, 0, 1, 2)
-
-        self.recognizedNames = QTextEdit(self.recognitionSettings)
-        self.recognizedNames.setObjectName(u"recognizedNames")
-
-        self.gridLayout_4.addWidget(self.recognizedNames, 2, 2, 1, 1)
-
-        self.startRecognitionBtn = QPushButton(self.recognitionSettings)
-        self.startRecognitionBtn.setObjectName(u"startRecognitionBtn")
-
-        self.gridLayout_4.addWidget(self.startRecognitionBtn, 3, 0, 1, 2)
-
-        self.resetBtn = QPushButton(self.recognitionSettings)
-        self.resetBtn.setObjectName(u"resetBtn")
-
-        self.gridLayout_4.addWidget(self.resetBtn, 3, 2, 1, 1)
+        self.gridLayout_4.addWidget(self.label_8, 2, 1, 1, 1)
 
         self.stackedWidget.addWidget(self.recognitionSettings)
 
@@ -314,8 +327,10 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.imagesToTake.rangeChanged.connect(self.lcdNumber_2.display)
         self.resetBtn.clicked.connect(self.recognizedNames.clear)
+
+        self.stackedWidget.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
@@ -326,19 +341,17 @@ class Ui_MainWindow(object):
         self.minimizeBtn.setText("")
         self.restoreBtn.setText("")
         self.closeBtn.setText("")
-        self.cameraOutput.setText("")
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Camera", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"No of Images to Take", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"No of Trained People", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Name", None))
-        self.existingUser.setText(QCoreApplication.translate("MainWindow", u"Existing User", None))
-        self.addOnDataset.setText(QCoreApplication.translate("MainWindow", u"Add on existing Dataset", None))
         self.datasetProcess.setText(QCoreApplication.translate("MainWindow", u"Start Process", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"Camera", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"No of Trained People", None))
-        self.label_7.setText(QCoreApplication.translate("MainWindow", u"People Recognized", None))
-        self.startRecognitionBtn.setText(QCoreApplication.translate("MainWindow", u"Start Recognition", None))
         self.resetBtn.setText(QCoreApplication.translate("MainWindow", u"Reset", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"People Recognized", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Camera", None))
+        self.startRecognitionBtn.setText(QCoreApplication.translate("MainWindow", u"Start Recognition", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"No of Trained People", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"People in Database", None))
         self.datasetBtn.setText(QCoreApplication.translate("MainWindow", u"Dataset", None))
         self.recognitionBtn.setText(QCoreApplication.translate("MainWindow", u"Recognition", None))
         self.trainDatasetBtn.setText(QCoreApplication.translate("MainWindow", u"Train Dataset", None))

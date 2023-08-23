@@ -1,18 +1,16 @@
 {
 	"QMainWindow":[
 		{
-			"tittle":"Face Recognition",
+			"tittle":"Facial Recognition",
 			"icon":":/icons/Icons/icon.png",
 			"frameless": true,
-			"transluscentBg": true,
-			"sizeGrip": "size_grip",
 			"shadow":[
 				{
 					"color": "#fff",
 					"blurRadius": 20,
 					"xOffset": 0,
 					"yOffset": 0,
-					"centralWidget": "centralwidget"
+					"centralWidget": "mainContainer"
 				}
 			],
 			"navigation":[
@@ -31,5 +29,39 @@
 				}
 			]
 		}
-	]
+	],
+    "QStackedWidget":[
+        {
+            "name":"stackedWidget",
+            "transitionAnimation":[
+                {
+                    "fade":[
+                        {
+                            "active":true,
+                            "duration":1000,
+                            "easingCurve":"OutBack"
+                        }
+                    ],
+                    "slide":[
+                        {
+                            "active":true,
+                            "duration":1000,
+                            "direction":"horizontal",
+                            "easingCurve":"OutBack"
+                        }
+                    ]
+                }
+            ],
+            "navigation":[
+                {
+                    "navigationButtons":[
+                        {
+                            "datasetBtn":"imageDataset",
+                            "recognitionBtn":"recognitionSettings"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }
