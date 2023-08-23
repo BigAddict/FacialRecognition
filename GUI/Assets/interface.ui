@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0" colspan="2" alignment="Qt::AlignTop">
@@ -155,21 +158,11 @@
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QGridLayout" name="gridLayout_3">
-          <item row="0" column="0">
-           <widget class="QLabel" name="cameraOutput">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
           <item row="1" column="0" alignment="Qt::AlignBottom">
            <widget class="QPlainTextEdit" name="textOutput"/>
+          </item>
+          <item row="0" column="0">
+           <widget class="QGraphicsView" name="cameraOutput"/>
           </item>
          </layout>
         </widget>
@@ -200,6 +193,9 @@
             <layout class="QGridLayout" name="gridLayout_2">
              <item row="0" column="0">
               <widget class="QCustomStackedWidget" name="stackedWidget">
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
                <widget class="QWidget" name="imageDataset">
                 <layout class="QFormLayout" name="formLayout">
                  <item row="0" column="0">
@@ -298,33 +294,6 @@
                   <widget class="QLineEdit" name="lineEdit"/>
                  </item>
                  <item row="6" column="0" colspan="2">
-                  <widget class="QCheckBox" name="existingUser">
-                   <property name="font">
-                    <font>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Existing User</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="7" column="0" colspan="2">
-                  <widget class="QCheckBox" name="addOnDataset">
-                   <property name="font">
-                    <font>
-                     <pointsize>9</pointsize>
-                     <weight>75</weight>
-                     <bold>true</bold>
-                    </font>
-                   </property>
-                   <property name="text">
-                    <string>Add on existing Dataset</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="8" column="0" colspan="2">
                   <widget class="QPushButton" name="datasetProcess">
                    <property name="text">
                     <string>Start Process</string>
@@ -335,6 +304,53 @@
                </widget>
                <widget class="QWidget" name="recognitionSettings">
                 <layout class="QGridLayout" name="gridLayout_4">
+                 <item row="5" column="2">
+                  <widget class="QPushButton" name="resetBtn">
+                   <property name="text">
+                    <string>Reset</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QLabel" name="label_7">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <pointsize>10</pointsize>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
+                   <property name="text">
+                    <string>People Recognized</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="2">
+                  <widget class="QLCDNumber" name="noOfTrainedPeopleDisplay2">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="2">
+                  <widget class="QTextEdit" name="recognizedNames">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="0" column="0">
                   <widget class="QLabel" name="label">
                    <property name="text">
@@ -344,6 +360,13 @@
                  </item>
                  <item row="0" column="1" colspan="2">
                   <widget class="QComboBox" name="cameraSelectRec"/>
+                 </item>
+                 <item row="5" column="0" colspan="2">
+                  <widget class="QPushButton" name="startRecognitionBtn">
+                   <property name="text">
+                    <string>Start Recognition</string>
+                   </property>
+                  </widget>
                  </item>
                  <item row="1" column="0" colspan="2">
                   <widget class="QLabel" name="label_6">
@@ -361,11 +384,11 @@
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="2">
-                  <widget class="QLCDNumber" name="noOfTrainedPeopleDisplay2"/>
+                 <item row="2" column="2">
+                  <widget class="QTableView" name="tableView"/>
                  </item>
-                 <item row="2" column="0" colspan="2">
-                  <widget class="QLabel" name="label_7">
+                 <item row="2" column="1">
+                  <widget class="QLabel" name="label_8">
                    <property name="font">
                     <font>
                      <pointsize>10</pointsize>
@@ -374,24 +397,10 @@
                     </font>
                    </property>
                    <property name="text">
-                    <string>People Recognized</string>
+                    <string>People in Database</string>
                    </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="2">
-                  <widget class="QTextEdit" name="recognizedNames"/>
-                 </item>
-                 <item row="3" column="0" colspan="2">
-                  <widget class="QPushButton" name="startRecognitionBtn">
-                   <property name="text">
-                    <string>Start Recognition</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="2">
-                  <widget class="QPushButton" name="resetBtn">
-                   <property name="text">
-                    <string>Reset</string>
+                   <property name="wordWrap">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -457,30 +466,14 @@
  </resources>
  <connections>
   <connection>
-   <sender>imagesToTake</sender>
-   <signal>rangeChanged(int,int)</signal>
-   <receiver>lcdNumber_2</receiver>
-   <slot>display(int)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>631</x>
-     <y>292</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>700</x>
-     <y>247</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
    <sender>resetBtn</sender>
    <signal>clicked()</signal>
    <receiver>recognizedNames</receiver>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>790</x>
-     <y>377</y>
+     <x>839</x>
+     <y>491</y>
     </hint>
     <hint type="destinationlabel">
      <x>721</x>
